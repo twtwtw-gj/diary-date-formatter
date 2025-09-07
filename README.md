@@ -1,70 +1,86 @@
-# GitHub Codespaces ♥️ React
+# Diary Date Formatter
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+A simple React web app that displays formatted dates for diary entries in Japanese format.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## 📝 What it does
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+This app helps you quickly get properly formatted dates for your diary entries. It displays:
+- **Today's date** - Current date in MM/DD(weekday) format
+- **Tomorrow's date** - Next day's date 
+- **Day after tomorrow's date** - The day after next
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+All dates are displayed in Japanese format with weekdays in Japanese characters (日月火水木金土).
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- 🗓️ **Three-day view** - See today, tomorrow, and day after tomorrow at a glance
+- 📋 **One-click copy** - Click the copy button to copy any date to clipboard
+- 🎨 **Clean UI** - Simple, colorful interface with gradient backgrounds
+- 📱 **Responsive design** - Works on desktop and mobile devices
+- 🔄 **Auto-updates** - Dates update automatically when you load the page
 
-### `npm start`
+## 🚀 Getting Started
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm or yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+### Installation
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+1. Clone the repository:
+```bash
+git clone https://github.com/twtwtw-gj/diary-date-formatter.git
+cd diary-date-formatter
+```
 
-### `npm test`
+2. Install dependencies:
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run build`
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💡 How to use
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Open the app in your browser
+2. You'll see three date cards showing today, tomorrow, and the day after tomorrow
+3. Click the 📋 button next to any date to copy it to your clipboard
+4. Paste the copied date into your diary application or text editor
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🎯 Use Cases
 
-## Learn More
+Perfect for:
+- Daily diary/journal writing
+- Planning blog posts with dated entries
+- Creating consistent date formatting across documents
+- Quick reference for upcoming dates in Japanese format
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+## 🔧 Built With
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+- **React** - Frontend framework
+- **Vite** - Build tool and development server
+- **CSS** - For styling and responsive design
+- **JavaScript Date API** - For date calculations and formatting
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📱 Date Format
 
-### Code Splitting
+The app uses Japanese date format: `MM/DD（曜日）`
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+Example: `09/07（日）` for September 7th (Sunday)
 
-### Analyzing the Bundle Size
+## 🤝 Contributing
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
+Feel free to fork this project and submit pull requests for any improvements!
 
-### Making a Progressive Web App
+## 📄 License
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
+This project is open source and available under the [MIT License](LICENSE).
 
-### Advanced Configuration
+## 🙋‍♂️ Questions?
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
-
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+If you have any questions or suggestions, feel free to open an issue on GitHub!
