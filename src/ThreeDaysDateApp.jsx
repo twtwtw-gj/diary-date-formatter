@@ -31,8 +31,6 @@ export default function ThreeDaysDateApp() {
     }
   };
 
-
-
   useEffect(() => {
     setDates({
       today: formatDate(0),
@@ -99,6 +97,18 @@ export default function ThreeDaysDateApp() {
             {copyMessage}
           </div>
         )}
+        
+        {/* GitHub Repository Link */}
+        <div className="github-link-container">
+          <a 
+            href="https://github.com/twtwtw-gj/diary-date-formatter" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="github-link"
+          >
+            GitHub Repository
+          </a>
+        </div>
       </div>
     </div>
   );
