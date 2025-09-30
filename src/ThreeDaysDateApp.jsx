@@ -31,6 +31,8 @@ export default function ThreeDaysDateApp() {
     }
   };
 
+
+
   useEffect(() => {
     setDates({
       today: formatDate(0),
@@ -40,60 +42,64 @@ export default function ThreeDaysDateApp() {
   }, []);
 
   return (
-    <div className="date-formatter-root">
-      <div className="date-formatter-container">
-        <h1 className="date-formatter-title">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-cyan-100 flex items-center justify-center p-4">
+      <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg w-full">
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
           📅 日記の日付用フォーマット
         </h1>
-        <div className="date-formatter-list">
+        
+        <div className="space-y-4 mb-6">
           {/* 今日 */}
-          <div className="date-formatter-item today">
-            <div className="date-formatter-row">
+          <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
+            <div className="flex justify-between items-center">
               <div>
-                <div className="date-formatter-label">今日</div>
-                <div className="date-formatter-date">{dates.today}</div>
+                <div className="text-sm text-gray-600 mb-1">今日</div>
+                <div className="text-xl font-bold text-gray-800">{dates.today}</div>
               </div>
               <button
                 onClick={() => copyDate(dates.today, '今日の日付')}
-                className="date-formatter-btn today"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
               </button>
             </div>
           </div>
+
           {/* 明日 */}
-          <div className="date-formatter-item tomorrow">
-            <div className="date-formatter-row">
+          <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg border-l-4 border-purple-500">
+            <div className="flex justify-between items-center">
               <div>
-                <div className="date-formatter-label">明日</div>
-                <div className="date-formatter-date">{dates.tomorrow}</div>
+                <div className="text-sm text-gray-600 mb-1">明日</div>
+                <div className="text-xl font-bold text-gray-800">{dates.tomorrow}</div>
               </div>
               <button
                 onClick={() => copyDate(dates.tomorrow, '明日の日付')}
-                className="date-formatter-btn tomorrow"
+                className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
               </button>
             </div>
           </div>
+
           {/* 明後日 */}
-          <div className="date-formatter-item dayafter">
-            <div className="date-formatter-row">
+          <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg border-l-4 border-green-500">
+            <div className="flex justify-between items-center">
               <div>
-                <div className="date-formatter-label">明後日</div>
-                <div className="date-formatter-date">{dates.dayAfterTomorrow}</div>
+                <div className="text-sm text-gray-600 mb-1">明後日</div>
+                <div className="text-xl font-bold text-gray-800">{dates.dayAfterTomorrow}</div>
               </div>
               <button
                 onClick={() => copyDate(dates.dayAfterTomorrow, '明後日の日付')}
-                className="date-formatter-btn dayafter"
+                className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
               </button>
             </div>
           </div>
         </div>
+        
         {copyMessage && (
-          <div className="date-formatter-message">
+          <div className="mt-4 text-center text-green-600 font-medium animate-bounce">
             {copyMessage}
           </div>
         )}
