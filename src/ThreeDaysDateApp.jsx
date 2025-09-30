@@ -40,7 +40,7 @@ export default function ThreeDaysDateApp() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-cyan-100 flex items-center justify-center p-4">
+  <div className="min-h-screen bg-gradient-to-br from-indigo-200 to-cyan-200 flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg w-full">
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
           📅 日記の日付用フォーマット
