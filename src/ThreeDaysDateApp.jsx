@@ -11,13 +11,13 @@ export default function ThreeDaysDateApp() {
   const formatDate = (daysOffset) => {
     const date = new Date();
     date.setDate(date.getDate() + daysOffset);
-    
+
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-    
+
     const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
     const weekday = weekdays[date.getDay()];
-    
+
     return `${month}/${day}（${weekday}）`;
   };
 
@@ -30,8 +30,6 @@ export default function ThreeDaysDateApp() {
       console.error('コピーに失敗しました:', err);
     }
   };
-
-
 
   useEffect(() => {
     setDates({
@@ -47,7 +45,7 @@ export default function ThreeDaysDateApp() {
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
           📅 日記の日付用フォーマット
         </h1>
-        
+
         <div className="space-y-4 mb-6">
           {/* 今日 */}
           <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-l-4 border-blue-500">
@@ -97,20 +95,21 @@ export default function ThreeDaysDateApp() {
             </div>
           </div>
         </div>
-        
+
         {copyMessage && (
           <div className="mt-4 text-center text-green-600 font-medium animate-bounce">
             {copyMessage}
           </div>
         )}
-        
+
         {/* GitHub Repository Link */}
-        <div className="github-link-container">
-          <a 
-            href="https://github.com/twtwtw-gj/diary-date-formatter" 
-            target="_blank" 
+        <hr className="my-6 border-t border-gray-300" />
+        <div className="github-link-container text-center">
+          <a
+            href="https://github.com/twtwtw-gj/diary-date-formatter"
+            target="_blank"
             rel="noopener noreferrer"
-            className="github-link"
+            className="github-link text-blue-600 hover:underline font-semibold"
           >
             GitHub Repository
           </a>
