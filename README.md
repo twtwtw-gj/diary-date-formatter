@@ -84,3 +84,8 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙋‍♂️ Questions?
 
 If you have any questions or suggestions, feel free to open an issue on GitHub!
+
+
+## 📝 Reference
+
+This project was inspired by Claude Artifacts.
