@@ -7,6 +7,7 @@ export default function ThreeDaysDateApp() {
     dayAfterTomorrow: ''
   });
   const [copyMessage, setCopyMessage] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const formatDate = (daysOffset) => {
     const date = new Date();
@@ -23,11 +24,18 @@ export default function ThreeDaysDateApp() {
 
   const copyDate = async (dateText, label) => {
     try {
+      if (!navigator.clipboard) {
+        throw new Error('Clipboard API is not supported');
+      }
       await navigator.clipboard.writeText(dateText);
+      setIsError(false);
       setCopyMessage(`${label}をコピーしました！`);
       setTimeout(() => setCopyMessage(''), 2000);
     } catch (err) {
       console.error('コピーに失敗しました:', err);
+      setIsError(true);
+      setCopyMessage('コピーできませんでした');
+      setTimeout(() => setCopyMessage(''), 2000);
     }
   };
 
@@ -40,7 +48,7 @@ export default function ThreeDaysDateApp() {
   }, []);
 
   return (
-  <div className="min-h-screen bg-gradient-to-br from-indigo-200 to-cyan-200 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-200 to-cyan-200 flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg w-full">
         <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
           📅 日記の日付用フォーマット
@@ -97,7 +105,9 @@ export default function ThreeDaysDateApp() {
         </div>
 
         {copyMessage && (
-          <div className="mt-4 text-center text-green-600 font-medium animate-bounce">
+          <div className={`mt-4 text-center font-medium animate-bounce ${
+            isError ? 'text-red-600' : 'text-green-600'
+          }`}>
             {copyMessage}
           </div>
         )}
