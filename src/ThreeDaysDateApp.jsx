@@ -1,26 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ThreeDaysDateApp() {
-  const [dates, setDates] = useState({
-    today: '',
-    tomorrow: '',
-    dayAfterTomorrow: ''
-  });
-  const [copyMessage, setCopyMessage] = useState('');
-  const [isError, setIsError] = useState(false);
-
+  const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+  const now = new Date();
   const formatDate = (daysOffset) => {
-    const date = new Date();
+    const date = new Date(now);
     date.setDate(date.getDate() + daysOffset);
 
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
 
-    const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
     const weekday = weekdays[date.getDay()];
 
     return `${month}/${day}（${weekday}）`;
   };
+  const [today,tomorrow, dayAfterTomorrow] = [0, 1, 2].map(formatDate);
+  const [copyMessage, setCopyMessage] = useState('');
+  const [isError, setIsError] = useState(false);
 
   const copyDate = async (dateText, label) => {
     try {
@@ -39,14 +35,6 @@ export default function ThreeDaysDateApp() {
     }
   };
 
-  useEffect(() => {
-    setDates({
-      today: formatDate(0),
-      tomorrow: formatDate(1),
-      dayAfterTomorrow: formatDate(2)
-    });
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-200 to-cyan-200 flex items-center justify-center p-4">
       <div className="bg-white p-8 rounded-xl shadow-lg max-w-lg w-full">
@@ -60,10 +48,10 @@ export default function ThreeDaysDateApp() {
             <div className="flex justify-between items-center">
               <div>
                 <div className="text-sm text-gray-600 mb-1">今日</div>
-                <div className="text-xl font-bold text-gray-800">{dates.today}</div>
+                <div className="text-xl font-bold text-gray-800">{today}</div>
               </div>
               <button
-                onClick={() => copyDate(dates.today, '今日の日付')}
+                onClick={() => copyDate(today, '今日の日付')}
                 className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
@@ -76,10 +64,10 @@ export default function ThreeDaysDateApp() {
             <div className="flex justify-between items-center">
               <div>
                 <div className="text-sm text-gray-600 mb-1">明日</div>
-                <div className="text-xl font-bold text-gray-800">{dates.tomorrow}</div>
+                <div className="text-xl font-bold text-gray-800">{tomorrow}</div>
               </div>
               <button
-                onClick={() => copyDate(dates.tomorrow, '明日の日付')}
+                onClick={() => copyDate(tomorrow, '明日の日付')}
                 className="bg-purple-500 hover:bg-purple-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
@@ -92,10 +80,10 @@ export default function ThreeDaysDateApp() {
             <div className="flex justify-between items-center">
               <div>
                 <div className="text-sm text-gray-600 mb-1">明後日</div>
-                <div className="text-xl font-bold text-gray-800">{dates.dayAfterTomorrow}</div>
+                <div className="text-xl font-bold text-gray-800">{dayAfterTomorrow}</div>
               </div>
               <button
-                onClick={() => copyDate(dates.dayAfterTomorrow, '明後日の日付')}
+                onClick={() => copyDate(dayAfterTomorrow, '明後日の日付')}
                 className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded text-sm transition-colors"
               >
                 📋
