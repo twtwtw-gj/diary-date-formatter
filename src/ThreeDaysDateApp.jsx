@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export default function ThreeDaysDateApp() {
+  const COPY_ERROR = 'コピーできませんでした';
   const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
   const now = new Date();
   const formatDate = (daysOffset) => {
@@ -16,21 +17,15 @@ export default function ThreeDaysDateApp() {
   };
   const [today,tomorrow, dayAfterTomorrow] = [0, 1, 2].map(formatDate);
   const [copyMessage, setCopyMessage] = useState('');
-  const [isError, setIsError] = useState(false);
 
   const copyDate = async (dateText, label) => {
     try {
-      if (!navigator.clipboard) {
-        throw new Error('Clipboard API is not supported');
-      }
       await navigator.clipboard.writeText(dateText);
-      setIsError(false);
       setCopyMessage(`${label}をコピーしました！`);
       setTimeout(() => setCopyMessage(''), 2000);
     } catch (err) {
       console.error('コピーに失敗しました:', err);
-      setIsError(true);
-      setCopyMessage('コピーできませんでした');
+      setCopyMessage(COPY_ERROR);
       setTimeout(() => setCopyMessage(''), 2000);
     }
   };
@@ -93,9 +88,13 @@ export default function ThreeDaysDateApp() {
         </div>
 
         {copyMessage && (
-          <div className={`mt-4 text-center font-medium animate-bounce ${
-            isError ? 'text-red-600' : 'text-green-600'
-          }`}>
+          <div
+            className={`mt-4 text-center font-medium animate-bounce ${
+              copyMessage === COPY_ERROR
+                ? 'text-red-600'
+                : 'text-green-600'
+            }`}
+          >
             {copyMessage}
           </div>
         )}
