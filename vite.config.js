@@ -12,5 +12,5 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
   },
-  base: '/diary-date-formatter/',
+  base: '/',
 })
