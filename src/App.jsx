@@ -1,11 +1,11 @@
 
 import './App.css';
-import ThreeDaysDateApp from './ThreeDaysDateApp';
+import DairyDateFormatter from './DairyDateFormatter';
 
 function App() {
   return (
     <div className="App">
-      <ThreeDaysDateApp />
+      <DairyDateFormatter />
     </div>
   );
 }
