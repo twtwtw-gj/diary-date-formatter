@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function ThreeDaysDateApp() {
+export default function DairyDateFormatter() {
   const COPY_ERROR = 'コピーできませんでした';
   const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
   const now = new Date();
