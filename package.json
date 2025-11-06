@@ -8,8 +8,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwindcss": "^4.1.13",
-    "web-vitals": "^3.1.0"
+    "tailwindcss": "^4.1.13"
   },
   "overrides": {
     "@svgr/webpack": "^8.0.1",
@@ -19,10 +18,7 @@
   "scripts": {
     "start": "BROWSER=none WDS_SOCKET_PORT=0 vite --port 3000",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "eslintConfig": {
     "extends": [
