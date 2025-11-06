@@ -1,12 +1,11 @@
 {
   "name": "diary-date-formatter",
-  "homepage": "https://twtwtw-gj.github.io/diary-date-formatter",
+  "homepage": "https://twtwtw-gj-diary-date-formatter.pages.dev/",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
-    "dayjs": "^1.11.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^4.1.13",
