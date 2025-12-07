@@ -6,5 +6,5 @@ export default {
   title: 'Dairy Date Formatter',
   extends: [vikeReact],
   favicon: '/favicon.png',
-  prerender: false
+  prerender: true
 }
