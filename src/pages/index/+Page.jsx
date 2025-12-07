@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import './Page.css';
+const COPY_ERROR = 'コピーできませんでした';
 
 export default function DairyDateFormatter() {
-  const COPY_ERROR = 'コピーできませんでした';
   const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
   const now = new Date();
   const formatDate = (daysOffset) => {
