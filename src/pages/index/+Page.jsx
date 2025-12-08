@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Page.css';
 const COPY_ERROR = 'コピーできませんでした';
+const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
 
 export default function DairyDateFormatter() {
-  const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
   const now = new Date();
   const formatDate = (daysOffset) => {
     const date = new Date(now);
@@ -16,7 +16,24 @@ export default function DairyDateFormatter() {
 
     return `${month}/${day}（${weekday}）`;
   };
-  const [today,tomorrow, dayAfterTomorrow] = [0, 1, 2].map(formatDate);
+
+  const [dates, setDates] = useState({
+    today: '',
+    tomorrow: '',
+    dayAfterTomorrow: '',
+  });
+
+  useEffect(() => {
+    setDates(dates => ({
+      ...dates,
+      today: formatDate(0),
+      tomorrow: formatDate(1),
+      dayAfterTomorrow: formatDate(2),
+    }));
+  }, []);
+
+  const { today, tomorrow, dayAfterTomorrow } = dates;
+
   const [copyMessage, setCopyMessage] = useState('');
 
   const copyDate = async (dateText, label) => {
