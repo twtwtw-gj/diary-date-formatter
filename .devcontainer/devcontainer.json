@@ -13,6 +13,11 @@
       ]
     }
   },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
   "portsAttributes": {
     "3000": {
       "label": "Application",
