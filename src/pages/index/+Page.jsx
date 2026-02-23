@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
+import holiday from '@holiday-jp/holiday_jp';
 import './Page.css';
+const isHoliday = holiday.isHoliday ?? holiday.default?.isHoliday ?? (() => false);
 const COPY_ERROR = 'コピーできませんでした';
 const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
 
@@ -14,7 +16,7 @@ export default function DairyDateFormatter() {
 
     const weekday = weekdays[date.getDay()];
 
-    return `${month}/${day}（${weekday}）`;
+    return isHoliday(date) ? `${month}/${day}（${weekday}・祝）` : `${month}/${day}（${weekday}）`;
   };
 
   const [dates, setDates] = useState({
