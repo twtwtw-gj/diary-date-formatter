@@ -1,11 +1,22 @@
 import { useState, useEffect } from 'react';
-import holiday from '@holiday-jp/holiday_jp';
 import './Page.css';
-const isHoliday = holiday.isHoliday ?? holiday.default?.isHoliday ?? (() => false);
 const COPY_ERROR = 'コピーできませんでした';
 const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
 
 export default function DairyDateFormatter() {
+  const [holidays, setHolidays] = useState({});
+
+  useEffect(() => {
+    fetch('/holidays')
+      .then(res => res.json())
+      .then(data => setHolidays(data))
+      .catch(err => console.error('Failed to fetch holidays:', err));
+  }, []);
+
+  const isHoliday = (date) => {
+    const key = date.toISOString().split('T')[0];
+    return key in holidays;
+  };
   const now = new Date();
   const formatDate = (daysOffset) => {
     const date = new Date(now);
