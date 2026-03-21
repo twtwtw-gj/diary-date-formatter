@@ -1,6 +1,3 @@
-/
-  Cache-Control: public, max-age=157680000, must-revalidate
-
 /*.html
   Cache-Control: public, max-age=157680000, must-revalidate
 
