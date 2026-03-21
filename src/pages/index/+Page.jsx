@@ -6,15 +6,10 @@ const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
 export default function DairyDateFormatter() {
   const [holidays, setHolidays] = useState({});
 
-  useEffect(() => {
-    fetch('/holidays')
-      .then(res => res.json())
-      .then(data => setHolidays(data))
-      .catch(err => console.error('Failed to fetch holidays:', err));
-  }, []);
-
   const isHoliday = (date) => {
+    console.log('Checking holiday for date:', date);
     const key = date.toISOString().split('T')[0];
+    console.log('Checking holiday for:', key, holidays[key], holidays);
     return key in holidays;
   };
   const now = new Date();
@@ -37,13 +32,22 @@ export default function DairyDateFormatter() {
   });
 
   useEffect(() => {
+    const load = async () => {
+      const res =await fetch('/holidays');
+      const json = await res.json();
+      setHolidays(json);
+    }
+    load();
+  }, []);
+
+  useEffect(() => {
     setDates(dates => ({
       ...dates,
       today: formatDate(0),
       tomorrow: formatDate(1),
       dayAfterTomorrow: formatDate(2),
     }));
-  }, []);
+  }, [holidays]);
 
   const { today, tomorrow, dayAfterTomorrow } = dates;
 
