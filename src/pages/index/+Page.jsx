@@ -7,9 +7,7 @@ export default function DairyDateFormatter() {
   const [holidays, setHolidays] = useState({});
 
   const isHoliday = (date) => {
-    console.log('Checking holiday for date:', date);
     const key = date.toISOString().split('T')[0];
-    console.log('Checking holiday for:', key, holidays[key], holidays);
     return key in holidays;
   };
   const now = new Date();
