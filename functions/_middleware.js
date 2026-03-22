@@ -5,7 +5,7 @@ export async function onRequest(context) {
     const response = await context.next();
 
     // 静的アセット（JS/CSS等）はmiddlewareのCache-Control設定をスキップ
-    if (url.pathname.match(/\.(html|js|css|woff2?|png|jpg|svg)$/)) {
+    if (url.pathname.match(/\.(|html|js|css|woff2?|png|jpg|svg)$/)) {
       return next(); // _headers に任せる
     }
 
