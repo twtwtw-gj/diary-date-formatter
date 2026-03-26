@@ -47,7 +47,7 @@ export default function DairyDateFormatter() {
 
   useEffect(() => {
     const load = async () => {
-      const res = await fetch('/holidays');
+      const res = await fetch('/api/holidays');
       const json = await res.json();
       setHolidays(json);
     };
