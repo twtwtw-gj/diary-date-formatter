@@ -1,12 +1,17 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "twtwtw-gj-diary-date-formatter",
-  "compatibility_date": "2026-03-17",
   "observability": {
-    "enabled": true
-  },
-  "main": "virtual:photon:cloudflare:server-entry",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+    "enabled": false,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  }
 }
