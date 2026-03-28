@@ -10,8 +10,7 @@
     "react-dom": "^19.2.1",
     "tailwindcss": "^4.1.13",
     "vike": "^0.4.247",
-    "vike-react": "^0.6.13",
-    "wrangler": "^4.76.0"
+    "vike-react": "^0.6.13"
   },
   "overrides": {
     "@svgr/webpack": "^8.0.1",
