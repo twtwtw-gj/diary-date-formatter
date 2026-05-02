@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-  const MAX_AGE_SECONDS = 60 * 60 * 24 * 30 * 8;
+  const MAX_AGE_SECONDS = 60 * 60 * 24 * 30 * 12;
 
   const { request, next, waitUntil } = context;
   const url = new URL(request.url);
@@ -20,7 +20,7 @@ export async function onRequest(context) {
 
   newResponse.headers.set(
     "Cache-Control",
-    `public, max-age=${MAX_AGE_SECONDS}`
+    `public, max-age=${MAX_AGE_SECONDS}, stale-while-revalidate=${MAX_AGE_SECONDS}, stale-if-error=${MAX_AGE_SECONDS}`
   );
 
   waitUntil(cache.put(cacheKey, newResponse.clone()));
