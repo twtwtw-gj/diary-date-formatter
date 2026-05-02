@@ -1,5 +1,5 @@
 /
-  Cache-Control: public, max-age=157680000
+  Cache-Control: public, max-age=10368000, stale-while-revalidate=10368000, stale-if-error=10368000
 
 /*.css
   Cache-Control: public, max-age=157680000, immutable
