@@ -1,5 +1,5 @@
 export async function onRequest(context) {
-  const MAX_AGE_SECONDS = 60 * 60 * 24 * 30 * 4;
+  const MAX_AGE_SECONDS = 60 * 60 * 24 * 30 * 8;
 
   const { request, next, waitUntil } = context;
   const url = new URL(request.url);
