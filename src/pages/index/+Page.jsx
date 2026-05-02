@@ -64,7 +64,7 @@ export default function DairyDateFormatter() {
 
   const [copyMessage, setCopyMessage] = useState('');
 
-  const copyDate = async (dateText, label) => {
+  const copyText = async (dateText, label) => {
     try {
       await navigator.clipboard.writeText(dateText);
       setCopyMessage(`${label}をコピーしました！`);
@@ -121,8 +121,8 @@ export default function DairyDateFormatter() {
           <DateCard
             label="今日"
             info={dates.today}
-            onCopy={() => copyDate(dates.today.formatted, '今日の日付')}
-            onCopyHoliday={() => copyDate(dates.today.holidayName, '祝日名')}
+            onCopy={() => copyText(dates.today.formatted, '今日の日付')}
+            onCopyHoliday={() => copyText(dates.today.holidayName, '今日の祝日名')}
             colorScheme={{
               bg: 'bg-gradient-to-r from-blue-50 to-blue-100',
               border: 'border-blue-500',
@@ -133,8 +133,8 @@ export default function DairyDateFormatter() {
           <DateCard
             label="明日"
             info={dates.tomorrow}
-            onCopy={() => copyDate(dates.tomorrow.formatted, '明日の日付')}
-            onCopyHoliday={() => copyDate(dates.tomorrow.holidayName, '祝日名')}
+            onCopy={() => copyText(dates.tomorrow.formatted, '明日の日付')}
+            onCopyHoliday={() => copyText(dates.tomorrow.holidayName, '明日の祝日名')}
             colorScheme={{
               bg: 'bg-gradient-to-r from-purple-50 to-purple-100',
               border: 'border-purple-500',
@@ -145,8 +145,8 @@ export default function DairyDateFormatter() {
           <DateCard
             label="明後日"
             info={dates.dayAfterTomorrow}
-            onCopy={() => copyDate(dates.dayAfterTomorrow.formatted, '明後日の日付')}
-            onCopyHoliday={() => copyDate(dates.dayAfterTomorrow.holidayName, '祝日名')}
+            onCopy={() => copyText(dates.dayAfterTomorrow.formatted, '明後日の日付')}
+            onCopyHoliday={() => copyText(dates.dayAfterTomorrow.holidayName, '明後日の祝日名')}
             colorScheme={{
               bg: 'bg-gradient-to-r from-green-50 to-green-100',
               border: 'border-green-500',
