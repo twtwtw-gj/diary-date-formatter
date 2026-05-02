@@ -77,7 +77,7 @@ export default function DairyDateFormatter() {
   };
 
   const DateCard = ({ label, info, onCopy, onCopyHoliday, colorScheme }) => {
-    const { bg, border, btn, btnHover } = colorScheme;
+    const { bg, border, btn, btnHover, badge, badgeBorder, badgeText } = colorScheme;
     return (
       <div className={`${bg} p-4 rounded-lg border-l-4 ${border}`}>
         <div className="flex justify-between items-center">
@@ -86,12 +86,12 @@ export default function DairyDateFormatter() {
             <div className="text-xl font-bold text-gray-800">{info.formatted}</div>
             {info.holidayName && (
               <div className="flex items-center gap-2 mt-1.5">
-                <span className="text-xs font-medium text-violet-700 bg-violet-100 border border-violet-200 rounded-md px-2 py-0.5">
+                <span className={`text-xs font-medium ${badgeText} ${badge} border ${badgeBorder} rounded-md px-2 py-0.5`}>
                   {info.holidayName}
                 </span>
                 <button
                   onClick={onCopyHoliday}
-                  className="bg-violet-400 hover:bg-violet-500 text-white px-2 py-1 rounded text-xs transition-colors"
+                  className={`${btn} ${btnHover} text-white px-2 py-1 rounded text-xs transition-colors`}
                   title="祝日名をコピー"
                 >
                   📋
@@ -123,21 +123,36 @@ export default function DairyDateFormatter() {
             info={dates.today}
             onCopy={() => copyDate(dates.today.formatted, '今日の日付')}
             onCopyHoliday={() => copyDate(dates.today.holidayName, '祝日名')}
-            colorScheme={{ bg: 'bg-gradient-to-r from-blue-50 to-blue-100', border: 'border-blue-500', btn: 'bg-blue-500', btnHover: 'hover:bg-blue-600' }}
+            colorScheme={{
+              bg: 'bg-gradient-to-r from-blue-50 to-blue-100',
+              border: 'border-blue-500',
+              btn: 'bg-blue-500', btnHover: 'hover:bg-blue-600',
+              badge: 'bg-blue-100', badgeBorder: 'border-blue-200', badgeText: 'text-blue-700',
+            }}
           />
           <DateCard
             label="明日"
             info={dates.tomorrow}
             onCopy={() => copyDate(dates.tomorrow.formatted, '明日の日付')}
             onCopyHoliday={() => copyDate(dates.tomorrow.holidayName, '祝日名')}
-            colorScheme={{ bg: 'bg-gradient-to-r from-purple-50 to-purple-100', border: 'border-purple-500', btn: 'bg-purple-500', btnHover: 'hover:bg-purple-600' }}
+            colorScheme={{
+              bg: 'bg-gradient-to-r from-purple-50 to-purple-100',
+              border: 'border-purple-500',
+              btn: 'bg-purple-500', btnHover: 'hover:bg-purple-600',
+              badge: 'bg-purple-100', badgeBorder: 'border-purple-200', badgeText: 'text-purple-700',
+            }}
           />
           <DateCard
             label="明後日"
             info={dates.dayAfterTomorrow}
             onCopy={() => copyDate(dates.dayAfterTomorrow.formatted, '明後日の日付')}
             onCopyHoliday={() => copyDate(dates.dayAfterTomorrow.holidayName, '祝日名')}
-            colorScheme={{ bg: 'bg-gradient-to-r from-green-50 to-green-100', border: 'border-green-500', btn: 'bg-green-500', btnHover: 'hover:bg-green-600' }}
+            colorScheme={{
+              bg: 'bg-gradient-to-r from-green-50 to-green-100',
+              border: 'border-green-500',
+              btn: 'bg-green-500', btnHover: 'hover:bg-green-600',
+              badge: 'bg-green-100', badgeBorder: 'border-green-200', badgeText: 'text-green-700',
+            }}
           />
         </div>
 
